@@ -1,3 +1,10 @@
+/* The Gods Tournament Interactive Story
+Pleyer chooses which god to train with.
+Choices affect the story and clues collected.
+The player must discover the correct message from the gods to win/
+*/
+
+
 let p1 = document.getElementById("paragraph1");
 let p2 = document.getElementById("paragraph2");
 let p3 = document.getElementById("paragraph3");
@@ -37,7 +44,7 @@ function trainZeus(){
 
     p1.textContent = "Zeus trains you with lightning strength";
     p2.textContent = "You feel stronger than ever";
-    p3.tectContent = "But Zeus whipers a weird clue";
+    p3.textContent = "But Zeus whispers a weird clue";
 
     changeImage("zeus.jpg");
 }
@@ -48,18 +55,18 @@ function trainHermes(){
 
     p1.textContent = "Hermes challenges you to impossible speed races";
     p2.textContent = "You become crazy fast";
-    p3.tectContent = "But Hermes leaves you with a mysterious hint";
+    p3.textContent = "But Hermes leaves you with a mysterious hint";
 
     changeImage("hermes.jpg");
 }
 
 function trainAthena(){
-    speed = speed + 1;
+    strategy = strategy + 1;
     clues.push("Athena said: Victory belongs to the smartest player.");
 
     p1.textContent = "Athena teaches you patience and strategy.";
     p2.textContent = "You begin to understand the rules and the idea of the tournament.";
-    p3.tectContent = "She leaves you with an important clue.";
+    p3.textContent = "She leaves you with an important clue.";
 
     changeImage("athena.jpg");
 }
@@ -70,7 +77,7 @@ function reviewClues(){
     p3.textContent = "";
 
     for(let i=0; i < clues.length; i++){
-        p2.textContent.Content += clues [i] + " "};
+        p2.textContent += clues [i] + " ";}
 }
 
 function checkAnswer(){
@@ -85,7 +92,7 @@ function checkAnswer(){
         else{
             p1.textContent = "The gods shakes thier heads."
             p2.textContent = "You misuncertood the lesson"
-            p3.textContent = "You lose the tournament (You will now be tortured for eternity (P.s. worst than atlas)"
+            p3.textContent = "You lose the tournament (You will now be tortured for eternity (P.s. worst than atlas, annnd you owe me $50)"
         }
 
     }
@@ -101,6 +108,6 @@ athenaButton.addEventListener("click", trainAthena);
 
 reviewButton.addEventListener("click", reviewClues);
 
-submitAnswer.addEventListener("clcik", checkAnswer);
+submitAnswer.addEventListener("click", checkAnswer);
 
 
