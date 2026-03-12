@@ -17,7 +17,7 @@ let zeusChallengeButton = document.getElementById("zeusChallengeButton");
 let hermesChallengeButton = document.getElementById("hermesChallengeButton");
 let athenaChallengeButton = document.getElementById("athenaChallengeButton");
 
-let finalTournamentChallengeButton = document.getElementById("finalTournamentChallengeButton");
+let finalTournamentButton = document.getElementById("finalTournamentButton");
 
 let reviewButton = document.getElementById("reviewButton");
 let answerInput = document.getElementById("answerInput");
@@ -29,6 +29,7 @@ let image = document.getElementById("story-image");
 let strength = 0;
 let speed = 0;
 let strategy = 0;
+let trainings = 0;
 
 let clues = [];
 
@@ -40,11 +41,13 @@ function startStory(){
 
 startStory();
 
-function changeImage(){
+function changeImage(file){
     image.src = file;
 }
 
 function trainZeus(){
+    trainings++;
+    
     strength = strength + 1;
     clues.push("Zeus said: Power alone cannot win the tournament.");
 
@@ -55,6 +58,8 @@ function trainZeus(){
     changeImage("zeus.jpg");
 
     zeusChallengeButton.style.display = "block";
+
+    zeusButton.style.display = "none";
 }
 
 function trainHermes(){
@@ -90,7 +95,8 @@ function reviewClues(){
 
     for(let i=0; i < clues.length; i++){
         p2.textContent += clues [i] + " ";}
-}
+        finalTournamentButton.style.display = "block";
+    }
 
 
 function zeusChallenge(){
@@ -98,7 +104,17 @@ function zeusChallenge(){
     p2.textContent = "The ground shakes as you gather your strength.";
     p3.textContent = "You barely lift it, but Zeus smiles."; 
 
-    finalTournamentButton.style.display = "block"
+    zeusChallengeButton.style.display = "none";
+
+    if(trainings == 1) {
+        p3.textContent = "Choose another god to train with.";
+    }
+
+    if(trainings == 2) {
+        reviewButton.style.display = "block";
+    }
+    
+
 }
 
 function hermesChallenge(){
@@ -106,7 +122,15 @@ function hermesChallenge(){
     p2.textContent = "You sprint faster than ever before.";
     p3.textContent = "You almost catch the spirits.";
 
-    finalTournamentButton.style.display = "block"
+    hermesChallengeButton.style.display = "none";
+
+    if(trainings == 1){
+        p3.textContent = "Choose another god to train with.";
+    }
+    if(trainings == 2) {
+        reviewButton.style.display = "block";
+    }
+    
 }
 
 function athenaChallenge(){
@@ -114,7 +138,14 @@ function athenaChallenge(){
     p2.textContent = "You carefully think through every move.";
     p3.textContent = "Athena nods approvingly .";
 
-    finalTournamentButton.style.display = "block"
+    athenaChallengeButton.style.display = "none";
+
+    if(trainings == 1){
+        p3.textContent = "Choose another god to train with.";
+    }
+    if(trainings == 2) {
+        reviewButton.style.display = "block";
+    }
 }
 
 function finalTournament(){
@@ -123,7 +154,10 @@ function finalTournament(){
     p2.textContent = "Athletes chose by the gods gather in the arena.";
     p3.textContent = "Use the clues you learned to win.";
 
-    changeImage(stadium.jpg) 
+    changeImage("stadium.jpg");
+
+    answerInput.style.display = "block";
+    submitAnswer.style.display = "block";
 }
 
 function checkAnswer(){
@@ -133,18 +167,21 @@ function checkAnswer(){
             p1.textContent = "You understood the gods message.";
             p2.textContent = "Strength, speed, and strategy must be balanced.";
             p3.textContent = "You win the Gods Tournament(You owe me $20 for playing my game btw)";
+            changeImage("win.jpg");
         }
 
         else{
             p1.textContent = "The gods shakes thier heads."
             p2.textContent = "You misuncertood the lesson"
             p3.textContent = "You lose the tournament (You will now be tortured for eternity (P.s. worst than atlas, annnd you owe me $50)"
+            changeImage("lose.jpg");
         }
 
     }
     catch(error){
         console.log("Error happened")
     }
+
 
 }
 
@@ -160,8 +197,19 @@ zeusChallengeButton.addEventListener("click", zeusChallenge)
 hermesChallengeButton.addEventListener("click", hermesChallenge)
 athenaChallengeButton.addEventListener("click", athenaChallenge)
 
-finalTournamenntButton = document.getElementById("finalTournamentButton")
+finalTournamentButton = document.getElementById("finalTournamentButton")
 
 zeusChallengeButton.style.display = "none";
-hermesChallengeButton.style.display = "none"
-athenaChallengeButton.style.display = "none"
+hermesChallengeButton.style.display = "none";
+athenaChallengeButton.style.display = "none";
+
+  finalTournamentButton.style.display = "none";
+
+  zeusChallengeButton.style.display = "none";
+    hermesChallengeButton.style.display = "none";
+      athenaChallengeButton.style.display = "none";
+
+      reviewButton.style.display = "none";
+        finalTournamentButton.style.display = "none";
+        answerInput.style.display="none";
+        submitAnswer.style.display= "none";
