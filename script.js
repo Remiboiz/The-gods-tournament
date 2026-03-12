@@ -13,6 +13,12 @@ let zeusButton = document.getElementById("zeusButton");
 let hermesButton = document.getElementById("hermesButton");
 let athenaButton = document.getElementById("athenaButton");
 
+let zeusChallengeButton = document.getElementById("zeusChallengeButton");
+let hermesChallengeButton = document.getElementById("hermesChallengeButton");
+let athenaChallengeButton = document.getElementById("athenaChallengeButton");
+
+let finalTournamentChallengeButton = document.getElementById("finalTournamentChallengeButton");
+
 let reviewButton = document.getElementById("reviewButton");
 let answerInput = document.getElementById("answerInput");
 
@@ -34,7 +40,7 @@ function startStory(){
 
 startStory();
 
-function changeImage(file){
+function changeImage(){
     image.src = file;
 }
 
@@ -47,6 +53,8 @@ function trainZeus(){
     p3.textContent = "But Zeus whispers a weird clue";
 
     changeImage("zeus.jpg");
+
+    zeusChallengeButton.style.display = "block";
 }
 
 function trainHermes(){
@@ -58,6 +66,8 @@ function trainHermes(){
     p3.textContent = "But Hermes leaves you with a mysterious hint";
 
     changeImage("hermes.jpg");
+
+    hermesChallengeButton.style.display = "block";
 }
 
 function trainAthena(){
@@ -69,6 +79,8 @@ function trainAthena(){
     p3.textContent = "She leaves you with an important clue.";
 
     changeImage("athena.jpg");
+
+    athenaChallengeButton.style.display = "block";
 }
 
 function reviewClues(){
@@ -78,6 +90,40 @@ function reviewClues(){
 
     for(let i=0; i < clues.length; i++){
         p2.textContent += clues [i] + " ";}
+}
+
+
+function zeusChallenge(){
+    p1.textContent = "Zeus challenge you to lift the lightning Boulder.";
+    p2.textContent = "The ground shakes as you gather your strength.";
+    p3.textContent = "You barely lift it, but Zeus smiles."; 
+
+    finalTournamentButton.style.display = "block"
+}
+
+function hermesChallenge(){
+    p1.textContent = "Hermes starts a race against the wind spirits.";
+    p2.textContent = "You sprint faster than ever before.";
+    p3.textContent = "You almost catch the spirits.";
+
+    finalTournamentButton.style.display = "block"
+}
+
+function athenaChallenge(){
+    p1.textContent = "Athena gives you a strategy puzzle.";
+    p2.textContent = "You carefully think through every move.";
+    p3.textContent = "Athena nods approvingly .";
+
+    finalTournamentButton.style.display = "block"
+}
+
+function finalTournament(){
+
+    p1.textContent = "The final tournament begins.";
+    p2.textContent = "Athletes chose by the gods gather in the arena.";
+    p3.textContent = "Use the clues you learned to win.";
+
+    changeImage(stadium.jpg) 
 }
 
 function checkAnswer(){
@@ -110,4 +156,12 @@ reviewButton.addEventListener("click", reviewClues);
 
 submitAnswer.addEventListener("click", checkAnswer);
 
+zeusChallengeButton.addEventListener("click", zeusChallenge)
+hermesChallengeButton.addEventListener("click", hermesChallenge)
+athenaChallengeButton.addEventListener("click", athenaChallenge)
 
+finalTournamenntButton = document.getElementById("finalTournamentButton")
+
+zeusChallengeButton.style.display = "none";
+hermesChallengeButton.style.display = "none"
+athenaChallengeButton.style.display = "none"
