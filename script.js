@@ -7,25 +7,31 @@ zeus -> athena -> hermes -> review clues -> final tournament -> password
 
 player has to figure out the message from the clues
 */
-
+// grabbing all text + buttons + image from HTML so I can control everything in JS
 let p1 = document.getElementById("paragraph1");
 let p2 = document.getElementById("paragraph2");
 let p3 = document.getElementById("paragraph3");
 
+// buttons for choosing which god to train with
 let zeusButton = document.getElementById("zeusButton");
 let athenaButton = document.getElementById("athenaButton");
 let hermesButton = document.getElementById("hermesButton");
 
+// buttons for each god’s challenge after training
 let zeusChallengeButton = document.getElementById("zeusChallengeButton");
 let athenaChallengeButton = document.getElementById("athenaChallengeButton");
 let hermesChallengeButton = document.getElementById("hermesChallengeButton");
 
+// buttons for reviewing clues and going to the final tournament
 let reviewButton = document.getElementById("reviewButton");
 let finalTournamentButton = document.getElementById("finalTournamentButton");
 
+
+// input + button for the player to type the final answer
 let answerInput = document.getElementById("answerInput");
 let submitAnswer = document.getElementById("submitAnswer");
 
+// image that changes depending on what part of the story you're in
 let image = document.getElementById("story-image");
 
 
@@ -34,7 +40,7 @@ let strength = 0;
 let strategy = 0;
 let speed = 0;
 
-// store clues here
+// array to store all clues from the gods
 let clues = [];
 
 
